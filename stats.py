@@ -25,3 +25,19 @@ def adding_words_to_dict(wordSplit,wordDict):
             else:
                 wordDict[j] +=1
     return wordDict
+
+# Function will report the dictionary that is parsed through in a neat format
+def reporting(wordDict,wordCount):
+    sorted_dict = dict(sorted(wordDict.items(), key=lambda item: item[1],reverse = True))
+    #remove non alpha values
+    print("============ BOOKBOT ============")
+    print("Analyzing book found at books/frankenstein.txt...")
+    print("----------- Word Count ----------")
+    print(f"Found {wordCount} total words")
+    print("--------- Character Count -------")
+    for key in sorted_dict:
+        if key.isalpha() == True:
+            amount = sorted_dict[key]
+            print(f"{key}: {amount}")
+    #End
+    print("============= END ===============")
